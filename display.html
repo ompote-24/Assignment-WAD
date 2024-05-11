@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User data</title>
+
+    <style>
+        body{
+           align-items: center; 
+        }
+        #userdata {
+          background-color: #fff;
+          max-width: 600px;
+          margin: 20px auto;
+          padding: 20px;
+          border-radius: 8px;
+          border:2px solid;
+          border-color: rgb(173, 230, 230);
+        }
+  
+        #userdata p {
+          margin-bottom: 10px;
+        }
+  
+        strong {
+          font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">User Data</h2>
+    <div id="userdata"></div>
+    
+    <script>
+        if(typeof(Storage) !== "undefined"){
+            var user = JSON.parse(localStorage.getItem("user"));
+
+            var userDataDiv = document.getElementById('userdata');
+            userDataDiv.innerHTML += "<p><strong>Name:</strong>" + user.fname + " " + user.lname + "</p>";
+            userDataDiv.innerHTML += "<p><strong>Date of Birth:</strong>" + user.dob + "</p>";
+            userDataDiv.innerHTML += "<p><strong>Phone:</strong>" + user.phone + "</p>";
+            userDataDiv.innerHTML += "<p><strong>Gender:</strong>" + user.gender + "</p>";
+            userDataDiv.innerHTML += "<p><strong>Course:</strong>" + user.course + "</p>";
+        }
+    </script>
+</body>
+</html>
